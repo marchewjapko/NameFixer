@@ -7,7 +7,7 @@
         <IncludeHttpRuleProtos>true</IncludeHttpRuleProtos>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Grpc.AspNetCore" Version="2.64.0"/>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.67.0"/>
         <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger" Version="0.9.1"/>
     </ItemGroup>
     <ItemGroup>
