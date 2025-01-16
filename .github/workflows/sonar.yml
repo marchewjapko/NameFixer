@@ -38,6 +38,7 @@ jobs:
           dotnet sonarscanner begin /k:"$SONAR_PROJECT_KEY" \
               /o:"$SONAR_ORGANIZATION_KEY" \
               /d:sonar.token="$SONAR_TOKEN" \
+              /d:sonar.scanner.scanAll=false \
               /d:sonar.cs.opencover.reportsPaths=coverage.xml
           dotnet build --no-incremental "NameFixer.WebApi/NameFixer.WebApi.csproj"
           dotnet test --collect:"XPlat Code Coverage;Format=opencover" "Tests\NameFixer.UnitTests\NameFixer.UnitTests.csproj"
