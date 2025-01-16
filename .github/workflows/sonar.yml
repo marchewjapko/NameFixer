@@ -1,0 +1,51 @@
+name: Sonar Analysis
+
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron:  '0 17 1 * *'
+
+jobs:
+  sonar-cloud-analysis:
+    name: SonarCloud Analysis
+    runs-on: ubuntu-latest    
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Install SonarScanner for .NET
+        run: dotnet tool install --global dotnet-sonarscanner
+
+      - name: Run SonarCloud analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
+          SONAR_PROJECT_KEY: marchewjapko_NameFixer
+          SONAR_ORGANIZATION_KEY: marchew-japko-personal-projects
+        run: |
+          dotnet sonarscanner begin /k:"$SONAR_PROJECT_KEY" \
+              /o:"$SONAR_ORGANIZATION_KEY" \
+              /d:sonar.token="$SONAR_TOKEN" \
+              /d:sonar.cs.opencover.reportsPaths=coverage.xml
+          dotnet build --no-incremental "NameFixer.WebApi/NameFixer.WebApi.csproj"
+          dotnet test --collect:"XPlat Code Coverage;Format=opencover" "Tests\NameFixer.UnitTests\NameFixer.UnitTests.csproj"
+          coverage_file=$(find "NameFixer.UnitTests/TestResults" -type f -name "coverage.opencover.xml" | head -n 1)
+          mv "$coverage_file" ./coverage.xml
+          dotnet sonarscanner end /d:sonar.token="$SONAR_TOKEN"
+
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: "./coverage.xml"
