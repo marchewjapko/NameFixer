@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameFixer.WebApi", "NameFixer.WebApi\NameFixer.WebApi.csproj", "{44A24DCE-5B08-41C6-9248-4E09AA02AAEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4045A03A-1C22-4C57-A3FE-D68876C05736}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\FemaleFirstNames.csv = Solution Items\FemaleFirstNames.csv
+		Solution Items\FemaleLastNames.csv = Solution Items\FemaleLastNames.csv
+		Solution Items\FemaleSecondNames.csv = Solution Items\FemaleSecondNames.csv
+		Solution Items\MaleFirstNames.csv = Solution Items\MaleFirstNames.csv
+		Solution Items\MaleLastNames.csv = Solution Items\MaleLastNames.csv
+		Solution Items\MaleSecondNames.csv = Solution Items\MaleSecondNames.csv
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameFixer.Infrastructure", "NameFixer.Infrastructure\NameFixer.Infrastructure.csproj", "{F8064502-4165-4417-ABEC-DB8C7E27CBA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameFixer.Core", "NameFixer.Core\NameFixer.Core.csproj", "{D8831B13-AEC2-4509-857F-08876A433A99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameFixer.UseCases", "NameFixer.UseCases\NameFixer.UseCases.csproj", "{6C164FC2-2B4C-4AE0-A624-C87E16D4183D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameFixer.UnitTests", "Tests\NameFixer.UnitTests\NameFixer.UnitTests.csproj", "{E54D5053-57A2-4845-ACB5-7B7E40C8217B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{666DB150-5E1A-4CD8-BAF4-4D65B91A8626}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44A24DCE-5B08-41C6-9248-4E09AA02AAEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A24DCE-5B08-41C6-9248-4E09AA02AAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A24DCE-5B08-41C6-9248-4E09AA02AAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A24DCE-5B08-41C6-9248-4E09AA02AAEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8064502-4165-4417-ABEC-DB8C7E27CBA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8064502-4165-4417-ABEC-DB8C7E27CBA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8064502-4165-4417-ABEC-DB8C7E27CBA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8064502-4165-4417-ABEC-DB8C7E27CBA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8831B13-AEC2-4509-857F-08876A433A99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8831B13-AEC2-4509-857F-08876A433A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8831B13-AEC2-4509-857F-08876A433A99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8831B13-AEC2-4509-857F-08876A433A99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C164FC2-2B4C-4AE0-A624-C87E16D4183D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C164FC2-2B4C-4AE0-A624-C87E16D4183D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C164FC2-2B4C-4AE0-A624-C87E16D4183D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C164FC2-2B4C-4AE0-A624-C87E16D4183D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E54D5053-57A2-4845-ACB5-7B7E40C8217B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E54D5053-57A2-4845-ACB5-7B7E40C8217B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E54D5053-57A2-4845-ACB5-7B7E40C8217B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E54D5053-57A2-4845-ACB5-7B7E40C8217B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E54D5053-57A2-4845-ACB5-7B7E40C8217B} = {666DB150-5E1A-4CD8-BAF4-4D65B91A8626}
+	EndGlobalSection
+EndGlobal

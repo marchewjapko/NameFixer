@@ -1,0 +1,5 @@
+using NameFixer.Core.Entities;
+
+namespace NameFixer.Core.Repositories;
+
+public interface IFirstNameRepository : IRepository<FirstNameEntity>;
