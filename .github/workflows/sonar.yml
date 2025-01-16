@@ -42,7 +42,7 @@ jobs:
               /d:sonar.cs.opencover.reportsPaths=coverage.xml
           dotnet build --no-incremental "NameFixer.WebApi/NameFixer.WebApi.csproj"
           dotnet test --collect:"XPlat Code Coverage;Format=opencover" "Tests\NameFixer.UnitTests\NameFixer.UnitTests.csproj"
-          coverage_file=$(find "Tests\NameFixer.UnitTests/TestResults" -type f -name "coverage.opencover.xml" | head -n 1)
+          coverage_file=$(find "Tests/NameFixer.UnitTests/TestResults" -type f -name "coverage.opencover.xml" | head -n 1)
           mv "$coverage_file" ./coverage.xml
           dotnet sonarscanner end /d:sonar.token="$SONAR_TOKEN"
 
