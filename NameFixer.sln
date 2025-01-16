@@ -4,12 +4,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameFixer.WebApi", "NameFix
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4045A03A-1C22-4C57-A3FE-D68876C05736}"
 	ProjectSection(SolutionItems) = preProject
-		Solution Items\FemaleFirstNames.csv = Solution Items\FemaleFirstNames.csv
-		Solution Items\FemaleLastNames.csv = Solution Items\FemaleLastNames.csv
-		Solution Items\FemaleSecondNames.csv = Solution Items\FemaleSecondNames.csv
-		Solution Items\MaleFirstNames.csv = Solution Items\MaleFirstNames.csv
-		Solution Items\MaleLastNames.csv = Solution Items\MaleLastNames.csv
-		Solution Items\MaleSecondNames.csv = Solution Items\MaleSecondNames.csv
+		.dockerignore = .dockerignore
+		README.md = README.md
+		.gitignore = .gitignore
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameFixer.Infrastructure", "NameFixer.Infrastructure\NameFixer.Infrastructure.csproj", "{F8064502-4165-4417-ABEC-DB8C7E27CBA0}"
