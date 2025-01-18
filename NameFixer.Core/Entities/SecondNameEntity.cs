@@ -1,3 +1,3 @@
 namespace NameFixer.Core.Entities;
 
-public record SecondNameEntity(string SecondName, int OccurenceRate);
+public record SecondNameEntity(string SecondName, int NumberOfOccurrences);

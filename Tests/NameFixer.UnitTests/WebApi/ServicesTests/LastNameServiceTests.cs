@@ -1,7 +1,7 @@
 using Grpc.Core;
 using Moq;
 using NameFixer.gRPCServices;
-using NameFixer.UseCases.Queries.GetLastNameSuggestionsQuery;
+using NameFixer.UseCases.Queries.Suggestions.GetLastNameSuggestionsQuery;
 using LastNameService = NameFixer.WebApi.Services.LastNameService;
 
 namespace NameFixer.UnitTests.WebApi.ServicesTests;
@@ -20,7 +20,7 @@ public class LastNameServiceTests
         suggestionsQueryMock
             .Setup(x => x.Handle(lastName.ToUpper()))
             .Returns(
-                new List<string>()
+                new List<string>
                 {
                     "MONTAGUE",
                     "MONTGOMERIE",

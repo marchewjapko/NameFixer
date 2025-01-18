@@ -1,7 +1,7 @@
 using Grpc.Core;
 using Moq;
 using NameFixer.gRPCServices;
-using NameFixer.UseCases.Queries.GetSecondNameSuggestionsQuery;
+using NameFixer.UseCases.Queries.Suggestions.GetSecondNameSuggestionsQuery;
 using SecondNameService = NameFixer.WebApi.Services.SecondNameService;
 
 namespace NameFixer.UnitTests.WebApi.ServicesTests;
@@ -20,7 +20,7 @@ public class SecondNameServiceTests
         suggestionsQueryMock
             .Setup(x => x.Handle(secondName.ToUpper()))
             .Returns(
-                new List<string>()
+                new List<string>
                 {
                     "JOHN",
                     "JON",
@@ -33,7 +33,7 @@ public class SecondNameServiceTests
 
         //Act
         var results = await firstNameService.GetSecondNameSuggestions(
-            new GetSecondNameSuggestionsRequest()
+            new GetSecondNameSuggestionsRequest
             {
                 SecondName = secondName
             },

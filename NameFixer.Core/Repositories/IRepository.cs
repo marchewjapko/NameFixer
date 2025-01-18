@@ -1,8 +1,8 @@
 namespace NameFixer.Core.Repositories;
 
-public interface IRepository<out T> where T : class
+public interface IRepository<T>
 {
     IEnumerable<T> GetAll();
 
-    Task Initialize();
+    void AddRange(params IEnumerable<T> entities);
 }

@@ -1,7 +1,7 @@
 using Grpc.Core;
 using NameFixer.gRPCServices;
 using NameFixer.UseCases.Helpers;
-using NameFixer.UseCases.Queries.GetSecondNameSuggestionsQuery;
+using NameFixer.UseCases.Queries.Suggestions.GetSecondNameSuggestionsQuery;
 
 namespace NameFixer.WebApi.Services;
 

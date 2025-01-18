@@ -8,7 +8,7 @@ public class StringExtensionTests
     public void ShouldCapitalize()
     {
         //Arrange
-        var input = "ANTHONY";
+        const string input = "ANTHONY";
 
         //Act
         var result = input.Capitalize();

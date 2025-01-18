@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using NameFixer.Infrastructure.Repositories.Configurations;
+using NameFixer.UseCases.Options;
 
 namespace NameFixer.WebApi.Configurations;
 
@@ -26,7 +26,7 @@ public static class OptionsConfiguration
                 .ValidateOptions<RepositoryOptions>());
     }
 
-    public static IConfigurationSection ValidateOptions<T>(this IConfigurationSection configuration)
+    private static IConfigurationSection ValidateOptions<T>(this IConfigurationSection configuration)
     {
         var options = configuration.Get<T>();
 

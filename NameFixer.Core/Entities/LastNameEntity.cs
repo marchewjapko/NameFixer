@@ -1,6 +1,6 @@
 namespace NameFixer.Core.Entities;
 
-public sealed record LastNameEntity(string LastName, int OccurenceRate)
+public sealed record LastNameEntity(string LastName, int NumberOfOccurrences)
 {
     public bool Equals(LastNameEntity? other)
     {

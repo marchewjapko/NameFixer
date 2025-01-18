@@ -16,6 +16,6 @@ public class UseCasesServiceExtensionsTests
         services.AddUseCasesServices();
 
         //Assert
-        Assert.That(services, Has.Count.EqualTo(initialServicesCount + 3));
+        Assert.That(services, Has.Count.EqualTo(initialServicesCount + 9));
     }
 }

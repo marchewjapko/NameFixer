@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using NameFixer.Infrastructure.Repositories.Configurations;
+using NameFixer.UseCases.Options;
 using NameFixer.WebApi.Configurations;
 
 namespace NameFixer.UnitTests.WebApi.ConfigurationsTests;
@@ -17,31 +17,31 @@ public class OptionsConfigurationTests
         var inMemorySettings = new Dictionary<string, string>
         {
             {
-                "DatasetsOptions:FirstNameRepository:MinOccurrenceRate", "1000"
+                "DatasetsOptions:FirstNameOptions:MinOccurrenceRate", "1000"
             },
             {
-                "DatasetsOptions:FirstNameRepository:FemaleLocalPath", "SomePath1"
+                "DatasetsOptions:FirstNameOptions:FemaleLocalPath", "SomePath1"
             },
             {
-                "DatasetsOptions:FirstNameRepository:MaleLocalPath", "SomePath1"
+                "DatasetsOptions:FirstNameOptions:MaleLocalPath", "SomePath1"
             },
             {
-                "DatasetsOptions:SecondNameRepository:MinOccurrenceRate", "1000"
+                "DatasetsOptions:SecondNameOptions:MinOccurrenceRate", "1000"
             },
             {
-                "DatasetsOptions:SecondNameRepository:FemaleLocalPath", "SomePath2"
+                "DatasetsOptions:SecondNameOptions:FemaleLocalPath", "SomePath2"
             },
             {
-                "DatasetsOptions:SecondNameRepository:MaleLocalPath", "SomePath2"
+                "DatasetsOptions:SecondNameOptions:MaleLocalPath", "SomePath2"
             },
             {
-                "DatasetsOptions:LastNameRepository:MinOccurrenceRate", "1000"
+                "DatasetsOptions:LastNameOptions:MinOccurrenceRate", "1000"
             },
             {
-                "DatasetsOptions:LastNameRepository:FemaleLocalPath", "SomePath3"
+                "DatasetsOptions:LastNameOptions:FemaleLocalPath", "SomePath3"
             },
             {
-                "DatasetsOptions:LastNameRepository:MaleLocalPath", "SomePath3"
+                "DatasetsOptions:LastNameOptions:MaleLocalPath", "SomePath3"
             }
         };
 
@@ -90,31 +90,31 @@ public class OptionsConfigurationTests
         var inMemorySettings = new Dictionary<string, string>
         {
             {
-                "DatasetsOptions:FirstNameRepository:MinOccurrenceRate", "1000"
+                "DatasetsOptions:FirstNameOptions:MinOccurrenceRate", "1000"
             },
             {
-                "DatasetsOptions:FirstNameRepository:FemaleLocalPath", null!
+                "DatasetsOptions:FirstNameOptions:FemaleLocalPath", null!
             },
             {
-                "DatasetsOptions:FirstNameRepository:MaleLocalPath", "SomePath1"
+                "DatasetsOptions:FirstNameOptions:MaleLocalPath", "SomePath1"
             },
             {
-                "DatasetsOptions:SecondNameRepository:MinOccurrenceRate", "1000"
+                "DatasetsOptions:SecondNameOptions:MinOccurrenceRate", "1000"
             },
             {
-                "DatasetsOptions:SecondNameRepository:FemaleLocalPath", "SomePath2"
+                "DatasetsOptions:SecondNameOptions:FemaleLocalPath", "SomePath2"
             },
             {
-                "DatasetsOptions:SecondNameRepository:MaleLocalPath", "SomePath2"
+                "DatasetsOptions:SecondNameOptions:MaleLocalPath", "SomePath2"
             },
             {
-                "DatasetsOptions:LastNameRepository:MinOccurrenceRate", "1000"
+                "DatasetsOptions:LastNameOptions:MinOccurrenceRate", "1000"
             },
             {
-                "DatasetsOptions:LastNameRepository:FemaleLocalPath", "SomePath3"
+                "DatasetsOptions:LastNameOptions:FemaleLocalPath", "SomePath3"
             },
             {
-                "DatasetsOptions:LastNameRepository:MaleLocalPath", "SomePath3"
+                "DatasetsOptions:LastNameOptions:MaleLocalPath", "SomePath3"
             }
         };
 
@@ -129,7 +129,7 @@ public class OptionsConfigurationTests
         Assert.That(
             exception.Message,
             Is.EqualTo(
-                "Options validation for section 'DatasetsOptions:FirstNameRepository' failed: The FemaleLocalPath field is required."));
+                "Options validation for section 'DatasetsOptions:FirstNameOptions' failed: The FemaleLocalPath field is required."));
     }
 
     [Test]
@@ -162,6 +162,6 @@ public class OptionsConfigurationTests
         Assert.That(
             exception.Message,
             Is.EqualTo(
-                "Unable to map configuration section DatasetsOptions:FirstNameRepository to NameFixer.Infrastructure.Repositories.Configurations.RepositoryOptions"));
+                "Unable to map configuration section DatasetsOptions:FirstNameOptions to NameFixer.UseCases.Options.RepositoryOptions"));
     }
 }

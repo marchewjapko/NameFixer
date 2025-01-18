@@ -11,6 +11,8 @@ public static class ServiceConfiguration
         services.AddUseCasesServices();
         services.AddInfrastructureServices();
 
+        services.AddHealthChecks();
+
         services.AddGrpcSwagger();
         services.AddSwaggerGen(
             c =>

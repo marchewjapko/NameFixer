@@ -1,7 +1,7 @@
 using System.IO.Abstractions;
 using System.IO.Abstractions.TestingHelpers;
 using Moq;
-using NameFixer.Infrastructure.Models.DatasetFileModels;
+using NameFixer.Core.Models.DatasetModels;
 using NameFixer.Infrastructure.Services;
 
 namespace NameFixer.UnitTests.InfrastructureTests.ServicesTests;
