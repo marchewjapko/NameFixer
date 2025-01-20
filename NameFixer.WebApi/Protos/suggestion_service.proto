@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option csharp_namespace = "NameFixer.gRPCServices";
+import "google/api/annotations.proto";
+
+package namefixer.suggestions;
+
+service SuggestionsService {
+  rpc GetFirstNameSuggestions (GetSuggestionsRequest) returns (GetSuggestionsResponse) {
+    option (google.api.http) = {
+      get: "/SuggestionsService/FirstName/{key}"
+    };
+  };
+  rpc GetSecondNameSuggestions (GetSuggestionsRequest) returns (GetSuggestionsResponse) {
+    option (google.api.http) = {
+      get: "/SuggestionsService/SecondName/{key}"
+    };
+  };
+  rpc GetLastNameSuggestions (GetSuggestionsRequest) returns (GetSuggestionsResponse) {
+    option (google.api.http) = {
+      get: "/SuggestionsService/LastName/{key}"
+    };
+  };
+}
+
+message GetSuggestionsRequest {
+  string key = 1;
+}
+
+message GetSuggestionsResponse {
+  repeated string suggestions = 1;
+}

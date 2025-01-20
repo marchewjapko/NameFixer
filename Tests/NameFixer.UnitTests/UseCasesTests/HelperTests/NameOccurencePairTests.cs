@@ -13,7 +13,7 @@ public class NameOccurencePairTests
         //Arrange
         var comparer = new NameOccurencePairComparer();
 
-        var x = new NameOccurencePair()
+        var x = new NameOccurencePair
         {
             Name = Faker.Name.FirstName(),
             Occurence = 100,
@@ -37,7 +37,7 @@ public class NameOccurencePairTests
 
         NameOccurencePair x = null!;
 
-        var y = new NameOccurencePair()
+        var y = new NameOccurencePair
         {
             Name = Faker.Name.FirstName(),
             Occurence = 100,
@@ -74,14 +74,14 @@ public class NameOccurencePairTests
         //Arrange
         var comparer = new NameOccurencePairComparer();
 
-        var x = new NameOccurencePair()
+        var x = new NameOccurencePair
         {
             Name = Faker.Name.FirstName(),
             Occurence = 100,
             LevenshteinDistance = 0
         };
 
-        var y = new NameOccurencePair()
+        var y = new NameOccurencePair
         {
             Name = Faker.Name.FirstName(),
             Occurence = 100,
@@ -101,14 +101,14 @@ public class NameOccurencePairTests
         //Arrange
         var comparer = new NameOccurencePairComparer();
 
-        var x = new NameOccurencePair()
+        var x = new NameOccurencePair
         {
             Name = Faker.Name.FirstName(),
             Occurence = 100,
             LevenshteinDistance = 2
         };
 
-        var y = new NameOccurencePair()
+        var y = new NameOccurencePair
         {
             Name = Faker.Name.FirstName(),
             Occurence = 100,
@@ -128,14 +128,14 @@ public class NameOccurencePairTests
         //Arrange
         var comparer = new NameOccurencePairComparer();
 
-        var x = new NameOccurencePair()
+        var x = new NameOccurencePair
         {
             Name = Faker.Name.FirstName(),
             Occurence = 100_000,
             LevenshteinDistance = 2
         };
 
-        var y = new NameOccurencePair()
+        var y = new NameOccurencePair
         {
             Name = Faker.Name.FirstName(),
             Occurence = 100,
@@ -155,14 +155,14 @@ public class NameOccurencePairTests
         //Arrange
         var comparer = new NameOccurencePairComparer();
 
-        var x = new NameOccurencePair()
+        var x = new NameOccurencePair
         {
             Name = Faker.Name.FirstName(),
             Occurence = 100,
             LevenshteinDistance = 2
         };
 
-        var y = new NameOccurencePair()
+        var y = new NameOccurencePair
         {
             Name = Faker.Name.FirstName(),
             Occurence = 100_000,

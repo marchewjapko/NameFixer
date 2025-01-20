@@ -8,6 +8,7 @@ using NameFixer.gRPCServices;
 
 namespace NameFixer.IntegrationTests.Docker.Tests;
 
+[Parallelizable(ParallelScope.Self)]
 public class DockerIntegrationTests
 {
     private readonly DockerClient _dockerClient = new DockerClientConfiguration().CreateClient();
@@ -60,7 +61,7 @@ public class DockerIntegrationTests
             .WithPortBinding(8081, true)
             .WithPortBinding(8082, true)
             .WithEnvironment(
-                new Dictionary<string, string>()
+                new Dictionary<string, string>
                 {
                     {
                         "Kestrel__Endpoints__Https__Url", "http://+:0"
@@ -92,9 +93,9 @@ public class DockerIntegrationTests
         Assume.That(_container, Is.Not.Null);
         Assume.That(_container.Health, Is.EqualTo(TestcontainersHealthStatus.Healthy));
 
-        var request = new GetFirstNameSuggestionsRequest()
+        var request = new GetSuggestionsRequest
         {
-            FirstName = "Lukasz"
+            Key = "Lukasz"
         };
 
         var uri = new UriBuilder
@@ -106,7 +107,7 @@ public class DockerIntegrationTests
 
         var channel = GrpcChannel.ForAddress(uri);
 
-        var client = new FirstNameService.FirstNameServiceClient(channel);
+        var client = new SuggestionsService.SuggestionsServiceClient(channel);
 
         //Act
         var result = await client.GetFirstNameSuggestionsAsync(request);
@@ -115,9 +116,9 @@ public class DockerIntegrationTests
         Assert.Multiple(
             () =>
             {
-                Assert.That(result.FirstNameSuggestions, Has.Count.EqualTo(5));
-                Assert.That(result.FirstNameSuggestions, Does.Not.Contain("Lukasz"));
-                Assert.That(result.FirstNameSuggestions, Does.Contain("Łukasz"));
+                Assert.That(result.Suggestions, Has.Count.EqualTo(5));
+                Assert.That(result.Suggestions, Does.Not.Contain("Lukasz"));
+                Assert.That(result.Suggestions, Does.Contain("Łukasz"));
             });
     }
 }

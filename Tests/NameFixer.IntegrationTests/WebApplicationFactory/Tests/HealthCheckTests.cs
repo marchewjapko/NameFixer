@@ -1,5 +1,6 @@
 namespace NameFixer.IntegrationTests.WebApplicationFactory.Tests;
 
+[Parallelizable(ParallelScope.Self)]
 public class HealthCheckTests
 {
     private readonly HttpClient _client;

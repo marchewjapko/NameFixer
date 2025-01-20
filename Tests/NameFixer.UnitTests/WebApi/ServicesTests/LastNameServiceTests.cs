@@ -1,8 +1,10 @@
 using Grpc.Core;
 using Moq;
 using NameFixer.gRPCServices;
+using NameFixer.UseCases.Queries.Suggestions.GetFirstNameSuggestionsQuery;
 using NameFixer.UseCases.Queries.Suggestions.GetLastNameSuggestionsQuery;
-using LastNameService = NameFixer.WebApi.Services.LastNameService;
+using NameFixer.UseCases.Queries.Suggestions.GetSecondNameSuggestionsQuery;
+using NameFixer.WebApi.Services;
 
 namespace NameFixer.UnitTests.WebApi.ServicesTests;
 
@@ -16,8 +18,8 @@ public class LastNameServiceTests
 
         var context = new Mock<ServerCallContext>();
 
-        var suggestionsQueryMock = new Mock<IGetLastNameSuggestionsQuery>();
-        suggestionsQueryMock
+        var lastNameSuggestionsQueryMock = new Mock<IGetLastNameSuggestionsQuery>();
+        lastNameSuggestionsQueryMock
             .Setup(x => x.Handle(lastName.ToUpper()))
             .Returns(
                 new List<string>
@@ -29,13 +31,19 @@ public class LastNameServiceTests
                     "MONTROSE"
                 });
 
-        var firstNameService = new LastNameService(suggestionsQueryMock.Object);
+        var firstNameSuggestionsQueryMock = new Mock<IGetFirstNameSuggestionsQuery>();
+        var secondNameSuggestionsQueryMock = new Mock<IGetSecondNameSuggestionsQuery>();
+
+        var service = new SuggestionService(
+            firstNameSuggestionsQueryMock.Object,
+            secondNameSuggestionsQueryMock.Object,
+            lastNameSuggestionsQueryMock.Object);
 
         //Act
-        var results = await firstNameService.GetLastNameSuggestions(
-            new GetLastNameSuggestionsRequest
+        var results = await service.GetLastNameSuggestions(
+            new GetSuggestionsRequest
             {
-                LastName = lastName
+                Key = lastName
             },
             context.Object);
 
@@ -45,6 +53,6 @@ public class LastNameServiceTests
             "Montague", "Montgomerie", "Montgomer", "Montemayor", "Montrose"
         ];
 
-        Assert.That(results.LastNameSuggestions, Is.EquivalentTo(expected));
+        Assert.That(results.Suggestions, Is.EquivalentTo(expected));
     }
 }

@@ -2,25 +2,26 @@
 
 namespace NameFixer.IntegrationTests.WebApplicationFactory.Tests.ServiceTests;
 
+[Parallelizable(ParallelScope.Self)]
 public class LastNameServiceTests
 {
-    private readonly LastNameService.LastNameServiceClient _client;
+    private readonly SuggestionsService.SuggestionsServiceClient _client;
 
     public LastNameServiceTests()
     {
         var fixture = new TestServerFixture();
 
         var channel = fixture.GrpcChannel;
-        _client = new LastNameService.LastNameServiceClient(channel);
+        _client = new SuggestionsService.SuggestionsServiceClient(channel);
     }
 
     [Test]
     public async Task ShouldGetSuggestionsForFirstName()
     {
         // arrange
-        var request = new GetLastNameSuggestionsRequest()
+        var request = new GetSuggestionsRequest
         {
-            LastName = "Kowaski"
+            Key = "Kowaski"
         };
 
         // act
@@ -30,9 +31,9 @@ public class LastNameServiceTests
         Assert.Multiple(
             () =>
             {
-                Assert.That(result.LastNameSuggestions, Has.Count.EqualTo(5));
-                Assert.That(result.LastNameSuggestions, Does.Not.Contain("Kowaski"));
-                Assert.That(result.LastNameSuggestions, Does.Contain("Kowalski"));
+                Assert.That(result.Suggestions, Has.Count.EqualTo(5));
+                Assert.That(result.Suggestions, Does.Not.Contain("Kowaski"));
+                Assert.That(result.Suggestions, Does.Contain("Kowalski"));
             });
     }
 }

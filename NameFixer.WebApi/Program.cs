@@ -18,7 +18,7 @@ builder
     .AddJsonTranscoding(
         options =>
         {
-            options.JsonSettings = new GrpcJsonSettings()
+            options.JsonSettings = new GrpcJsonSettings
             {
                 WriteIndented = true
             };
@@ -39,9 +39,7 @@ var app = builder.Build();
 
 await app.Services.InitializeStores();
 
-app.MapGrpcService<FirstNameService>();
-app.MapGrpcService<SecondNameService>();
-app.MapGrpcService<LastNameService>();
+app.MapGrpcService<SuggestionService>();
 
 app.UseSwagger();
 app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });

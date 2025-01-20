@@ -2,25 +2,26 @@
 
 namespace NameFixer.IntegrationTests.WebApplicationFactory.Tests.ServiceTests;
 
+[Parallelizable(ParallelScope.Self)]
 public class SecondNameServiceTests
 {
-    private readonly SecondNameService.SecondNameServiceClient _client;
+    private readonly SuggestionsService.SuggestionsServiceClient _client;
 
     public SecondNameServiceTests()
     {
         var fixture = new TestServerFixture();
 
         var channel = fixture.GrpcChannel;
-        _client = new SecondNameService.SecondNameServiceClient(channel);
+        _client = new SuggestionsService.SuggestionsServiceClient(channel);
     }
 
     [Test]
     public async Task ShouldGetSuggestionsForFirstName()
     {
         // arrange
-        var request = new GetSecondNameSuggestionsRequest()
+        var request = new GetSuggestionsRequest
         {
-            SecondName = "Kawol"
+            Key = "Kawol"
         };
 
         // act
@@ -30,9 +31,9 @@ public class SecondNameServiceTests
         Assert.Multiple(
             () =>
             {
-                Assert.That(result.SecondNameSuggestions, Has.Count.EqualTo(5));
-                Assert.That(result.SecondNameSuggestions, Does.Not.Contain("Kawol"));
-                Assert.That(result.SecondNameSuggestions, Does.Contain("Karol"));
+                Assert.That(result.Suggestions, Has.Count.EqualTo(5));
+                Assert.That(result.Suggestions, Does.Not.Contain("Kawol"));
+                Assert.That(result.Suggestions, Does.Contain("Karol"));
             });
     }
 }

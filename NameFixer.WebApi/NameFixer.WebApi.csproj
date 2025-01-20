@@ -17,9 +17,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger" Version="0.9.1"/>
     </ItemGroup>
     <ItemGroup>
-        <Protobuf Include="Protos\first_name_service.proto" GrpcServices="Both"/>
-        <Protobuf Include="Protos\last_name_service.proto" GrpcServices="Both"/>
-        <Protobuf Include="Protos\second_name_service.proto" GrpcServices="Both"/>
+        <Protobuf Include="Protos\suggestion_service.proto" GrpcServices="Both"/>
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\NameFixer.Core\NameFixer.Core.csproj"/>

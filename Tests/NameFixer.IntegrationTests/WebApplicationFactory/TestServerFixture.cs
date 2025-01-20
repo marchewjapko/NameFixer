@@ -2,7 +2,7 @@ using Grpc.Net.Client;
 
 namespace NameFixer.IntegrationTests.WebApplicationFactory;
 
-public class TestServerFixture : IDisposable
+public sealed class TestServerFixture : IDisposable
 {
     private readonly CustomWebApplicationFactory _factory = new();
 
@@ -12,7 +12,7 @@ public class TestServerFixture : IDisposable
 
         HttpClient = client;
 
-        var channelOptions = new GrpcChannelOptions()
+        var channelOptions = new GrpcChannelOptions
         {
             HttpClient = client
         };
