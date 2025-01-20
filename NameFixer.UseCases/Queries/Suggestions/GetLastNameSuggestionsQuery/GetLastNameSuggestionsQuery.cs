@@ -28,7 +28,7 @@ public class GetLastNameSuggestionsQuery(ILastNameRepository repository) : IGetL
         }
 
         return results
-            .OrderByDescending(x => x.Occurence)
+            .OrderByDescending(x => x, new NameOccurencePairComparer())
             .Select(x => x.Name);
     }
 }

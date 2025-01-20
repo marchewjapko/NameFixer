@@ -6,6 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 		.gitignore = .gitignore
+		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameFixer.Infrastructure", "NameFixer.Infrastructure\NameFixer.Infrastructure.csproj", "{F8064502-4165-4417-ABEC-DB8C7E27CBA0}"
@@ -17,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameFixer.UnitTests", "Tests\NameFixer.UnitTests\NameFixer.UnitTests.csproj", "{E54D5053-57A2-4845-ACB5-7B7E40C8217B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{666DB150-5E1A-4CD8-BAF4-4D65B91A8626}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameFixer.IntegrationTests", "Tests\NameFixer.IntegrationTests\NameFixer.IntegrationTests.csproj", "{DB351517-96C3-4CFC-BADC-C616614483AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,8 +47,13 @@ Global
 		{E54D5053-57A2-4845-ACB5-7B7E40C8217B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E54D5053-57A2-4845-ACB5-7B7E40C8217B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E54D5053-57A2-4845-ACB5-7B7E40C8217B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB351517-96C3-4CFC-BADC-C616614483AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB351517-96C3-4CFC-BADC-C616614483AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB351517-96C3-4CFC-BADC-C616614483AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB351517-96C3-4CFC-BADC-C616614483AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E54D5053-57A2-4845-ACB5-7B7E40C8217B} = {666DB150-5E1A-4CD8-BAF4-4D65B91A8626}
+		{DB351517-96C3-4CFC-BADC-C616614483AD} = {666DB150-5E1A-4CD8-BAF4-4D65B91A8626}
 	EndGlobalSection
 EndGlobal

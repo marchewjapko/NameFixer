@@ -28,7 +28,7 @@ public class GetSecondNameSuggestionsQuery(ISecondNameRepository repository) : I
         }
 
         return results
-            .OrderByDescending(x => x.Occurence)
+            .OrderByDescending(x => x, new NameOccurencePairComparer())
             .Select(x => x.Name);
     }
 }

@@ -1,6 +1,7 @@
 using Google.Protobuf.Reflection;
 using Google.Rpc;
 using Microsoft.AspNetCore.Grpc.JsonTranscoding;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using NameFixer.Infrastructure.ExceptionHandling;
 using NameFixer.WebApi.Configurations;
 using NameFixer.WebApi.Services;
@@ -25,12 +26,18 @@ builder
             options.TypeRegistry = TypeRegistry.FromMessages(ErrorInfo.Descriptor);
         });
 
+builder.Services.AddGrpcReflection();
+
+builder
+    .Services.AddGrpcHealthChecks()
+    .AddCheck("health", () => HealthCheckResult.Healthy());
+
 builder.Services.AddOptionsConfigurations(builder.Configuration);
 builder.Services.AddServiceConfiguration();
 
 var app = builder.Build();
 
-//await app.Services.InitializeStores();
+await app.Services.InitializeStores();
 
 app.MapGrpcService<FirstNameService>();
 app.MapGrpcService<SecondNameService>();
@@ -41,6 +48,10 @@ app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1
 
 app.UseHsts();
 
+app.MapGrpcReflectionService();
+
 app.MapHealthChecks("/_health");
+
+app.MapGrpcHealthChecksService();
 
 await app.RunAsync();
